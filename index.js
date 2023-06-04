@@ -34,7 +34,7 @@ const start = async () => {
     try {
         await connectDB(process.env.MONGO_URL);
         https.createServer({
-            key: fs.readFileSync(procee.env.PRIVATE_KEY),
+            key: fs.readFileSync(process.env.PRIVATE_KEY),
             cert: fs.readFileSync(process.env.CERT_FILE)
         }, app).listen(app.get("port"), () => {
             console.log(`The server is running at PORT:${app.get("port")}.`);
